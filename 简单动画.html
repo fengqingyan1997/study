@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 100px;
+            height: 100px;
+            background: greenyellow;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div id="box"></div>
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    var box = document.getElementById('box');
+    btn.addEventListener('click', function() {
+        var timerId = setInterval(function() {
+            var target = 500;
+            var step = 6;
+            if (box.offsetLeft >= target) {
+                clearInterval(timerId);
+                box.style.left = target + 'px';
+                // console.log(box.style.left);
+                return;
+            }
+            box.style.left = box.offsetLeft + step + 'px';
+            // console.log(box.offsetLeft);
+        }, 30)
+
+    })
+</script>
+
+</html>
